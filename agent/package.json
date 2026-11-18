@@ -1,0 +1,1 @@
+{"dependencies":{"ethers":"^6.13.0"},"description":"TapeGate agent — evaluates the spend-policy NAND circuit off-chain, signs approved spends, verifies live TapeOut state on X Layer","engines":{"node":">=22"},"license":"MIT","main":"server.mjs","name":"tapegate-agent","scripts":{"start":"node server.mjs","test":"node test-local.mjs"},"type":"module","version":"0.1.0"}

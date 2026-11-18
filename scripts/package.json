@@ -1,0 +1,1 @@
+{"dependencies":{"@taperelay/client":"^0.1.0-test.132","ethers":"^6.13.0"},"description":"TapeGate deploy + demo scripts (X Layer)","license":"MIT","name":"tapegate-scripts","private":true,"type":"module","version":"0.1.0"}

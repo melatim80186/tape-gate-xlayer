@@ -1,0 +1,11 @@
+{
+  "network": "X Layer mainnet fork (Anvil)",
+  "chainId": 196,
+  "vault": "0x9E545E3C0baAB3E08CdfD552C960A1050f373042",
+  "agent": "0xe9301ead0e2388F0093040704A83c2Def6551eF7",
+  "recipient": "0x5E3651c930Bb979200eB92892737afB3733A905A",
+  "netlistHash": "0xa0a428d05417a676897f6d905beed7bac6329796996c575fb6b435b38bab623f",
+  "tapeoutProcessor": "0x69F663931209096037474d7C20402232E5C762cA",
+  "tapeoutCircuitId": null,
+  "note": "Demo only. Real X Layer deployment needs a funded deployer — see scripts/deploy-xlayer.mjs."
+}

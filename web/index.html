@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TapeGate — Circuit-Gated Treasury on X Layer × TapeOut</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 860px; margin: 2rem auto; padding: 0 1rem; line-height: 1.5; }
+  h1 { font-size: 1.5rem; } h2 { font-size: 1.15rem; margin-top: 2rem; }
+  .card { border: 1px solid #ccc; border-radius: 8px; padding: 1rem; margin: 1rem 0; }
+  .ok { color: #0a7a0a; font-weight: bold; } .bad { color: #b00020; font-weight: bold; }
+  label { display: block; margin: .4rem 0; }
+  input[type=text] { width: 100%; padding: .4rem; font-family: monospace; }
+  button { padding: .5rem 1rem; font-size: 1rem; cursor: pointer; }
+  pre { background: #f4f4f4; padding: .8rem; overflow-x: auto; border-radius: 6px; }
+  svg text { font-family: monospace; font-size: 11px; }
+  .gate { fill: #eef4ff; stroke: #336; }
+  .wire { stroke: #666; stroke-width: 1.5; fill: none; }
+  .bit-on { fill: #0a7a0a; } .bit-off { fill: #999; }
+</style>
+</head>
+<body>
+<h1>TapeGate — Circuit-Gated Treasury</h1>
+<p>Every spend must pass a <b>NAND-gate circuit</b> (TapeOut's base primitive), evaluated
+twice: once by the agent, once on-chain by the vault on <b>X Layer (chain 196)</b>.
+Only all-six-checks-pass authorises a spend.</p>
+
+<div class="card">
+  <h2>Live status</h2>
+  <div id="status">Connecting to agent…</div>
+  <pre id="tapeout"></pre>
+</div>
+
+<div class="card">
+  <h2>Spend-policy circuit — 10 NAND gates</h2>
+  <p>OUT = agentOK &amp; budgetOK &amp; notRevoked &amp; windowOK &amp; amountOK &amp; fundedOK.
+  Toggle the inputs and ask the agent:</p>
+  <div id="toggles"></div>
+  <svg id="diagram" width="820" height="330"></svg>
+  <p>
+    <label>Recipient <input type="text" id="recipient" value="0x000000000000000000000000000000000000beef"></label>
+    <label>Amount (OKB) <input type="text" id="amount" value="0.1"></label>
+  </p>
+  <button id="ask">Ask the agent to decide</button>
+  <p><i>Note: the toggles preview the circuit logic locally (the diagram's OUT updates live).
+  When the agent runs in vault mode it reads the real inputs from the vault, not the toggles —
+  so a decision here reflects live vault state. The authoritative accept/reject proof is
+  <code>node scripts/demo.mjs</code> scenarios A–C.</i></p>
+  <pre id="decision">No decision yet.</pre>
+</div>
+
+<div class="card">
+  <h2>How this maps to TapeOut</h2>
+  <ul>
+    <li>Policy logic = NAND netlist (<code>circuit/spend-policy.json</code>), evaluated on-chain by <code>TapeCircuit.sol</code>.</li>
+    <li>Project identity = a circuit taped out on the official X Layer processor <b>TAPELIQUID</b>
+      (<code>0x69F663931209096037474d7C20402232E5C762cA</code>, factory #265) via the official
+      <code>@taperelay/client</code> — see <code>scripts/tapeout-identity.mjs</code>.</li>
+    <li>Demo runs on a local fork of X Layer mainnet — no real OKB needed. See README.</li>
+  </ul>
+</div>
+
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

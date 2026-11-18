@@ -1,0 +1,339 @@
+{
+  "name": "TapeGate spend-policy circuit",
+  "version": 1,
+  "description": "OUT = agentOK & budgetOK & notRevoked & windowOK & amountOK & fundedOK, built from 10 NAND gates.",
+  "inputs": [
+    "agentOK",
+    "budgetOK",
+    "notRevoked",
+    "windowOK",
+    "amountOK",
+    "fundedOK"
+  ],
+  "outputs": [
+    "authorised"
+  ],
+  "gates": [
+    {
+      "op": "NAND",
+      "a": 0,
+      "b": 1,
+      "out": 6
+    },
+    {
+      "op": "NAND",
+      "a": 6,
+      "b": 6,
+      "out": 7
+    },
+    {
+      "op": "NAND",
+      "a": 7,
+      "b": 2,
+      "out": 8
+    },
+    {
+      "op": "NAND",
+      "a": 8,
+      "b": 8,
+      "out": 9
+    },
+    {
+      "op": "NAND",
+      "a": 9,
+      "b": 3,
+      "out": 10
+    },
+    {
+      "op": "NAND",
+      "a": 10,
+      "b": 10,
+      "out": 11
+    },
+    {
+      "op": "NAND",
+      "a": 11,
+      "b": 4,
+      "out": 12
+    },
+    {
+      "op": "NAND",
+      "a": 12,
+      "b": 12,
+      "out": 13
+    },
+    {
+      "op": "NAND",
+      "a": 13,
+      "b": 5,
+      "out": 14
+    },
+    {
+      "op": "NAND",
+      "a": 14,
+      "b": 14,
+      "out": 15
+    }
+  ],
+  "outSignal": 15,
+  "netlistHex": "0x0106010a00010606060707020808080909030a0a0a0b0b040c0c0c0d0d050e0e0e0f0f",
+  "netlistBytes": 35,
+  "truthTable": [
+    {
+      "inputs": 0,
+      "out": 0
+    },
+    {
+      "inputs": 1,
+      "out": 0
+    },
+    {
+      "inputs": 2,
+      "out": 0
+    },
+    {
+      "inputs": 3,
+      "out": 0
+    },
+    {
+      "inputs": 4,
+      "out": 0
+    },
+    {
+      "inputs": 5,
+      "out": 0
+    },
+    {
+      "inputs": 6,
+      "out": 0
+    },
+    {
+      "inputs": 7,
+      "out": 0
+    },
+    {
+      "inputs": 8,
+      "out": 0
+    },
+    {
+      "inputs": 9,
+      "out": 0
+    },
+    {
+      "inputs": 10,
+      "out": 0
+    },
+    {
+      "inputs": 11,
+      "out": 0
+    },
+    {
+      "inputs": 12,
+      "out": 0
+    },
+    {
+      "inputs": 13,
+      "out": 0
+    },
+    {
+      "inputs": 14,
+      "out": 0
+    },
+    {
+      "inputs": 15,
+      "out": 0
+    },
+    {
+      "inputs": 16,
+      "out": 0
+    },
+    {
+      "inputs": 17,
+      "out": 0
+    },
+    {
+      "inputs": 18,
+      "out": 0
+    },
+    {
+      "inputs": 19,
+      "out": 0
+    },
+    {
+      "inputs": 20,
+      "out": 0
+    },
+    {
+      "inputs": 21,
+      "out": 0
+    },
+    {
+      "inputs": 22,
+      "out": 0
+    },
+    {
+      "inputs": 23,
+      "out": 0
+    },
+    {
+      "inputs": 24,
+      "out": 0
+    },
+    {
+      "inputs": 25,
+      "out": 0
+    },
+    {
+      "inputs": 26,
+      "out": 0
+    },
+    {
+      "inputs": 27,
+      "out": 0
+    },
+    {
+      "inputs": 28,
+      "out": 0
+    },
+    {
+      "inputs": 29,
+      "out": 0
+    },
+    {
+      "inputs": 30,
+      "out": 0
+    },
+    {
+      "inputs": 31,
+      "out": 0
+    },
+    {
+      "inputs": 32,
+      "out": 0
+    },
+    {
+      "inputs": 33,
+      "out": 0
+    },
+    {
+      "inputs": 34,
+      "out": 0
+    },
+    {
+      "inputs": 35,
+      "out": 0
+    },
+    {
+      "inputs": 36,
+      "out": 0
+    },
+    {
+      "inputs": 37,
+      "out": 0
+    },
+    {
+      "inputs": 38,
+      "out": 0
+    },
+    {
+      "inputs": 39,
+      "out": 0
+    },
+    {
+      "inputs": 40,
+      "out": 0
+    },
+    {
+      "inputs": 41,
+      "out": 0
+    },
+    {
+      "inputs": 42,
+      "out": 0
+    },
+    {
+      "inputs": 43,
+      "out": 0
+    },
+    {
+      "inputs": 44,
+      "out": 0
+    },
+    {
+      "inputs": 45,
+      "out": 0
+    },
+    {
+      "inputs": 46,
+      "out": 0
+    },
+    {
+      "inputs": 47,
+      "out": 0
+    },
+    {
+      "inputs": 48,
+      "out": 0
+    },
+    {
+      "inputs": 49,
+      "out": 0
+    },
+    {
+      "inputs": 50,
+      "out": 0
+    },
+    {
+      "inputs": 51,
+      "out": 0
+    },
+    {
+      "inputs": 52,
+      "out": 0
+    },
+    {
+      "inputs": 53,
+      "out": 0
+    },
+    {
+      "inputs": 54,
+      "out": 0
+    },
+    {
+      "inputs": 55,
+      "out": 0
+    },
+    {
+      "inputs": 56,
+      "out": 0
+    },
+    {
+      "inputs": 57,
+      "out": 0
+    },
+    {
+      "inputs": 58,
+      "out": 0
+    },
+    {
+      "inputs": 59,
+      "out": 0
+    },
+    {
+      "inputs": 60,
+      "out": 0
+    },
+    {
+      "inputs": 61,
+      "out": 0
+    },
+    {
+      "inputs": 62,
+      "out": 0
+    },
+    {
+      "inputs": 63,
+      "out": 1
+    }
+  ]
+}
